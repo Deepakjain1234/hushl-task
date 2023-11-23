@@ -1,24 +1,27 @@
 import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { Home } from './components/home/Home';
+
+
+const routes = {
+  '/': <Home /> 
+  // '/teach': <Teach /> ,
+  // '/prep':<Prep />,
+  // '/mock':<Mock />
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+            <Routes>
+                {
+                    Object.keys(routes).map((route, index) => {
+                        return (<Route key={index} path={route} element={routes[route]} />);
+                    })
+                }
+            </Routes>
+        </BrowserRouter>
   );
 }
 
