@@ -10,6 +10,7 @@ import img3 from "../../assets/image/like.png"
 import img4 from "../../assets/image/star.png"
 import img5 from "../../assets/image/thunder.png"
 import Swal from 'sweetalert2'
+import { faSuperpowers } from "@fortawesome/free-brands-svg-icons";
 
 // or via CommonJS
 // const Swal = require('sweetalert2')
@@ -256,9 +257,10 @@ const profileLikeMe=[
 ]
 
 export const Home=()=>{
-
+//  id hook 
   const [id,setid]=useState(0);
 
+  // match funtion 
   function match( findid)
   {
     for(var i=0;i<profileLikeMe.length;i++)
@@ -271,6 +273,7 @@ export const Home=()=>{
     }
 
   }
+  //  like button 
   function likeButton ()
   {
     if(match(id))
@@ -315,6 +318,9 @@ export const Home=()=>{
       setid(id+1)
     }
   }
+  // superchat button 
+   
+
   function supperchatButton ()
   {
     
@@ -339,6 +345,9 @@ export const Home=()=>{
       }
     });
   }
+ 
+  // backbutton function
+   
   function backbutton(){
     if(id==0)
     {
@@ -350,6 +359,7 @@ export const Home=()=>{
     }
 
   }
+  // superlike function 
   function superlike()
   {
     Swal.fire({
@@ -375,7 +385,9 @@ export const Home=()=>{
     
     return(
         <>
+        {/* navbar  */}
         <Navbar />
+        {/* profile  */}
         <Profile data={profile[id]}/>
         <div className="button-box">
           <div className="inner-button-box"> 
@@ -388,7 +400,7 @@ export const Home=()=>{
         
         </div>
 
-        
+        {/* footer  */}
         <Footer />
 
 
